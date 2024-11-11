@@ -16,7 +16,7 @@ jobs:
   deploy-infra:
     runs-on: ubuntu-latest
     outputs:
-      SERVER_PUBLIC_IP: ${{steps.set-ip.outputs.instance_public_ip}}
+      SERVER_PUBLIC_IP: ${{ steps.set-ip.outputs.instance_public_ip }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -80,7 +80,7 @@ jobs:
         with:
           host: ${{ env.SERVER_PUBLIC_IP}}
           username: ubuntu
-          key: ${{ env.AWS_SSH_KEY_PRIVATE}}
+          key: ${{ secrets.AWS_SSH_KEY_PRIVATE}}
           envs: AWS_SSH_KEY_PRIVATE,REGISTRY,REPOSITORY,IMAGE_TAG,AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY,AWS_DEFAULT_REGION,AWS_REGION
           script: |-
             sudo apt update
