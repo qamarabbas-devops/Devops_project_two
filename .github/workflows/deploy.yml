@@ -25,7 +25,7 @@ jobs:
           terraform_wrapper: false
       - name: Initialize Terraform
         id: init
-        run: terraform init   -backend-config="bucket=$AWS_TF_STATE_BUCKET_NAME" -backend-config="ap-northeast-1"
+        run: terraform init   -backend-config="bucket=$AWS_TF_STATE_BUCKET_NAME" #-backend-config="ap-northeast-1"
         working-directory: ./terraform
 
       - name: Plan Terraform
